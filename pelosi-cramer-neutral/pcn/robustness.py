@@ -167,6 +167,21 @@ def placebo_cramer_random_tickers(inp: Inputs, params: StrategyParams, start: st
     return pd.DataFrame(rows)
 
 
+def placebo_cramer_shuffle_dates(inp: Inputs, params: StrategyParams, start: str, end: str, n: int, seed: int = 0) -> pd.DataFrame:
+    """Stricter Cramer placebo: keep his exact names and mention frequencies, permute which date each name was called on.
+
+    Isolates *timing*: if fading Cramer only works because of which names he likes, this placebo does as well.
+    """
+    rng = np.random.default_rng(seed)
+    rows = []
+    for i in range(n):
+        s = inp.signals.copy()
+        s["ticker_symbol"] = rng.permutation(s["ticker_symbol"].values)
+        bt = run_backtest(inp.tx, s, inp.md, params, start=start, end=end)
+        rows.append(dict(trial=i, **_stats(bt["ret"], bt["rf"])))
+    return pd.DataFrame(rows)
+
+
 def placebo_pelosi_random_tickers(inp: Inputs, params: StrategyParams, start: str, end: str, n: int, seed: int = 0,
                                   candidate_pool: list[str] | None = None) -> pd.DataFrame:
     """Keep Pelosi's dates/sizes/holding logic but swap each ticker for a random large-cap."""

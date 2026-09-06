@@ -11,14 +11,31 @@ how to reproduce it.
 
 ## TL;DR
 
-See the headline block at the top of [`results/report.md`](results/report.md). In one paragraph: over the seven
-years for which both legs have machine-readable data (2018-01 → 2024-12) the beta-neutral book has a positive but
-statistically weak net Sharpe (bootstrap CI straddles zero), an alpha *t*-stat around 1, a ~30 % max drawdown
-(2022, when the mega-cap-tech long book fell while the broad short book did not), and a full-sample SPY beta of
-≈0 with the realised rolling 1-year beta inside ±0.10 on most days. Almost all of the P&L comes from the Pelosi
-leg; fading Cramer is roughly a zero-alpha, cost-consuming diversifier. The **disclosure lag does not hurt** the
-Pelosi leg — trading on the (illegal) trade date is no better than trading on the filing date — which is itself
-evidence that the leg's return is a large-cap-tech tilt rather than short-lived private information.
+Joint window 2018-01 → 2024-12 (the seven years for which both legs have machine-readable, point-in-time data),
+pre-specified parameters, net of 10 bp costs and 100 bp borrow:
+
+| | L/S book | SPY | Russell 2000 (IWM) | QQQ |
+|---|---|---|---|---|
+| CAGR | **6.6 %** | 13.7 % | 6.8 % | 19.3 % |
+| Vol | 13.7 % | 19 % | 24 % | 24 % |
+| Sharpe (excess of T-bills) | **0.37** | 0.64 | 0.30 | 0.76 |
+| Max drawdown | **−30 %** | −34 % | −41 % | −35 % |
+| Beta of the book to … | — | **0.01** (s.e. 0.02) | −0.12 | +0.12 |
+| Alpha of the book vs … (ann., *t*) | — | +4.9 % (0.9) | +5.9 % (1.2) | +2.7 % (0.5) |
+
+* Bootstrap 95 % CI for the Sharpe is **[−0.43, 1.14]**: not distinguishable from zero. IS Sharpe 0.50 → OOS 0.21;
+  walk-forward OOS 0.30.
+* Beta-neutral as mandated: ex-ante β = 0 daily; realised rolling 1-year β inside ±0.10 on 82 % of days, max 0.20.
+  The residual risk is a large-cap-growth tilt (long NVDA/AAPL/MSFT vs a broad short basket) — hence the 2022 drawdown.
+* The Pelosi leg supplies the return (hedged Sharpe 0.29) and it lives almost entirely in her disclosed **call-option**
+  trades (drop them → Sharpe 0.07). Time-shifting her filings (p = 0.44) or swapping her names for random large caps
+  (p = 0.26) does about as well: the leg is a concentrated mega-cap-tech bet, not evidence of information.
+* The Cramer short leg has real *timing* content — fading his names on his dates beats fading the same names shuffled
+  across dates in 200/200 placebo trials, and is Sharpe 0.61 before costs — but net of a 21-day-turnover short book's
+  costs it is break-even (0.12).
+* The **disclosure lag does not hurt**: entering on the filing date (Sharpe 0.37) beats the illegal trade-date entry
+  (0.22), and waiting a further 5–45 sessions is no worse. There is no short-lived private information to be late to.
+* Fragile to costs: doubling them takes the Sharpe to 0.03.
 
 ---
 

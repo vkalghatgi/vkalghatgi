@@ -55,7 +55,9 @@ def fig_legs(bt: pd.DataFrame, path: Path) -> str:
     ax2.set_ylabel("# short")
     ax2.grid(False)
     ax.set_title("Number of open positions")
-    fig.legend(loc="lower right", fontsize=8)
+    h1, l1 = ax.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    ax.legend(h1 + h2, l1 + l2, loc="upper left", fontsize=8)
     return _save(fig, path)
 
 
