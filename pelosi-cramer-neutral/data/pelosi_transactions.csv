@@ -1,0 +1,201 @@
+doc_id,filing_date,owner,asset,ticker,asset_type,txn_type,partial,txn_date,notif_date,amount_low,amount_high,status,description,instrument,disclosure_lag_days
+20002351,2015-01-12,,Walt Disney Company,DIS,,P,False,2014-12-10,2014-12-10,50001.0,100000.0,New,Purchase of 92 Options,call,33
+20002351,2015-01-12,,Visa Inc.,V,,S,False,2014-12-29,2014-12-29,250001.0,500000.0,New,sale of 1000 shares,stock,14
+20002351,2015-01-12,,Visa Inc.,V,,S,False,2014-12-30,2014-12-30,100001.0,250000.0,New,sale of 500 shares,stock,13
+20003320,2015-07-07,,"2000005577 Hertz global Holdings, Inc",HTZ,,P,False,2014-11-05,2014-11-05,15001.0,50000.0,Amended,Purchase of 50 call options with a strike price of $22 and an expiration date of 1/15/16,call,244
+20003320,2015-07-07,,"2000005578 Hertz global Holdings, Inc",HTZ,,P,False,2014-11-06,2014-11-06,50001.0,100000.0,Amended,Purchase of 150 call options with a strike price of $22 and an expiration date of 1/15/16,call,243
+20003320,2015-07-07,,"2000005579 Hertz global Holdings, Inc",HTZ,,P,False,2014-11-25,2014-11-25,100001.0,250000.0,Amended,Purchase of 200 call options with a strike price of $22 and an expiration date of 1/15/16,call,224
+20003320,2015-07-07,,"2000005581 Hertz global Holdings, Inc",HTZ,,P,False,2014-11-28,2014-11-28,50001.0,100000.0,Amended,Purchase of 100 call options with a strike price of $22 and an expiration date of 1/15/16,call,221
+20003320,2015-07-07,,2000005580 Walt Disney Company,DIS,,P,False,2014-11-28,2014-11-28,1001.0,15000.0,Amended,Purchase of 8 call options with a strike price of $90 and an expiration date of 1/15/16,call,221
+20003475,2015-07-28,,"Hertz global Holdings, Inc",HTZ,,P,False,2015-07-15,2015-07-15,15001.0,50000.0,New,Purchase of 42 call options with a strike price of $14 and an expiration date of 1/15/16,call,13
+20003475,2015-07-28,,"Hertz global Holdings, Inc",HTZ,,P,False,2015-07-16,2015-07-16,100001.0,250000.0,New,Purchase of 258 call options with a strike price of $14 and an expiration date of 1/15/16,call,12
+20004503,2016-02-02,,Visa Inc.,V,,S,False,2015-12-29,2015-12-29,250001.0,500000.0,New,"Sale of 5,000 Shares",stock,35
+20004503,2016-02-02,,Salesforce.com Inc,CRM,,S,False,2015-12-30,2015-12-30,50001.0,100000.0,New,"Contribution of 1,084 shares held personally to The Paul & Nancy Pelosi Charitable Foundation via transfer between brokerage accounts.",stock,34
+20004503,2016-02-02,,Visa Inc.,V,,S,False,2015-12-30,2015-12-30,100001.0,250000.0,New,"Contribution of 2,000 shares held personally to The Paul & Nancy Pelosi Charitable Foundation via transfer between brokerage accounts.",stock,34
+20004596,2016-02-17,,apple Inc.,AAPL,,P,False,2016-01-13,2016-01-13,250001.0,500000.0,New,Purchase of 200 call options with a strike price of $90 and an expiration date of 1/20/17,call,35
+20004596,2016-02-17,,Walt Disney Company,DIS,,P,False,2016-01-15,2016-01-15,500001.0,1000000.0,New,"Exercised 100 call options (10,000 shares) expiring 1/15/16 at a strike price of $90",exercise,33
+20005096,2016-05-24,,apple Inc.,AAPL,,P,False,2016-05-17,2016-05-17,100001.0,250000.0,New,Purchase of 100 call options with a strike price of $80 and an expiration date of 6/16/17,call,7
+20005096,2016-05-24,,"square, Inc. Class a",SQ,,P,False,2016-05-17,2016-05-17,1001.0,15000.0,New,Purchase of 50 call options with a strike price of $8 and an expiration date of 1/20/17,call,7
+20005689,2016-08-17,SP,Mcgrath RentCorp,MGRC,,S,False,2016-07-21,2016-07-21,250001.0,500000.0,New,"Sale of 8,000 Shares",stock,27
+20005689,2016-08-17,SP,Visa Inc.,V,,S,False,2016-07-21,2016-07-21,50001.0,100000.0,New,"Sale of 1,250 Shares",stock,27
+20006683,2017-02-06,JT,723 Mule Ears Court - Townhome,,,S,False,2016-12-27,2016-12-27,1000001.0,5000000.0,New,Sale of Townhome,other,41
+20006683,2017-02-06,JT,1600 Atlas Peak Road - Real Estate,,,S,False,2016-12-30,2016-12-30,500001.0,1000000.0,New,Sale of Investment Property,other,38
+20006735,2017-02-14,SP,apple Inc.,AAPL,,P,False,2017-01-19,2017-01-19,500001.0,1000000.0,New,"Exercised 100 call options (10,000 shares) expiring 1/20/17 at a strike price of $90",exercise,26
+20006735,2017-02-14,SP,apple Inc.,AAPL,,S,False,2017-01-20,2017-01-20,250001.0,500000.0,New,sale of 100 call options with a strike price of $90 and an expiration date of 1/20/17,call,25
+20006735,2017-02-14,SP,"square, Inc. Class a",SQ,,P,False,2017-01-20,2017-01-20,15001.0,50000.0,New,"Exercised 50 call options (5,000 shares) expiring 1/20/17 at a strike price of $8",exercise,25
+20007655,2017-07-20,SP,apple Inc.,AAPL,,P,False,2017-06-15,2017-06-15,500001.0,1000000.0,New,"Exercised 100 call options (10,000 shares) expiring 6/16/17 at a strike price of $80",exercise,35
+20007655,2017-07-20,SP,BF Enterprises Common stock New,BFET,,S,False,2017-06-20,2017-06-20,1001.0,15000.0,New,Partial cash liquidation initiated by corporation.,other,30
+20008699,2018-01-10,SP,apple Inc.,AAPL,,S,False,2017-12-21,2017-12-21,100001.0,250000.0,New,"Contribution of 1,300 shares held personally to Isolep Enterprises via transfer between brokerage accounts.",stock,20
+20008699,2018-01-10,SP,Visa Inc.,V,,S,False,2017-12-21,2017-12-21,100001.0,250000.0,New,"Contribution of 1,750 shares held personally to Isolep Enterprises via transfer between brokerage accounts.",stock,20
+20008699,2018-01-10,SP,apple Inc.,AAPL,,S,False,2017-12-28,2017-12-28,1000001.0,5000000.0,New,"sale of 9,000 shares",stock,13
+20008699,2018-01-10,SP,Visa Inc.,V,,S,False,2017-12-28,2017-12-28,500001.0,1000000.0,New,"sale of 5,000 shares",stock,13
+20008699,2018-01-10,SP,apple Inc.,AAPL,,S,False,2017-12-29,2017-12-29,250001.0,500000.0,New,"Contribution of 2,800 shares held personally to the Paul & Nancy Pelosi Charitable Foundation via transfer between brokerage accounts.",stock,12
+20009030,2018-02-26,SP,apple Inc.,AAPL,,P,False,2018-02-02,2018-02-02,100001.0,250000.0,New,Purchase of 50 call options with a strike price of $140 and an expiration date of 9/21/18.,call,24
+20009030,2018-02-26,SP,apple Inc.,AAPL,,P,False,2018-02-02,2018-02-02,100001.0,250000.0,New,Purchase of 50 call options with a strike price of $130 and an expiration date of 9/21/18.,call,24
+20009293,2018-04-16,SP,"Dropbox, Inc. - Class a",DBX,,P,False,2018-03-27,2018-03-27,250001.0,500000.0,New,"Purchase of 10,000 Shares",stock,20
+20009481,2018-09-06,SP,"Amazon.com, Inc.",AMZN,ST,P,False,2018-07-27,2018-07-27,500001.0,1000000.0,New,Purchase of 20 call options with a strike price of $1700 and an expiration date of 1/17/20.,call,41
+20009481,2018-09-06,SP,"Facebook, Inc. - Class A",FB,ST,P,False,2018-07-27,2018-07-27,50001.0,100000.0,New,Purchase of 20 call options with a strike price of $150 and an expiration date of 1/17/20.,call,41
+20009481,2018-09-06,SP,"Mojo Networks, Inc.",,PS,S,False,2018-08-23,2018-08-22,1001.0,15000.0,New,"Final cash distribution for preferred shares held resulting from Arista Networks, Inc. acquisition of Mojo Networks, Inc.",stock,14
+20010452,2018-10-25,SP,apple Inc.,AAPL,ST,P,False,2018-09-11,2018-09-11,500001.0,1000000.0,New,Purchased 100 call options with a strike price of $145 and an expiration date of 6/19/20.,call,44
+20010452,2018-10-25,SP,apple Inc.,AAPL,ST,P,False,2018-09-20,2018-09-20,500001.0,1000000.0,New,"Exercised 50 call options (5,000 shares) expiring 9/21/18 at a strike price of $130.",exercise,35
+20010452,2018-10-25,SP,apple Inc.,AAPL,ST,P,False,2018-09-20,2018-09-20,500001.0,1000000.0,New,"Exercised 50 call options (5,000 shares) expiring 9/21/18 at a strike price of $140.",exercise,35
+20010631,2018-11-08,SP,"Facebook, Inc. - Class a",FB,ST,P,False,2018-10-09,2018-10-09,100001.0,250000.0,New,Purchased 30 call options with a strike price of $140 and an expiration date of 1/17/20.,call,30
+20010631,2018-11-08,SP,"amazon.com, Inc.",AMZN,ST,P,False,2018-10-12,2018-10-12,1000001.0,5000000.0,New,Purchased 30 call options with a strike price of $1600 and an expiration date of 1/17/20.,call,27
+20010631,2018-11-08,SP,aT&T Inc.,T,ST,P,False,2018-10-24,2018-10-24,250001.0,500000.0,New,"Purchased 10,000 shares.",stock,15
+20011279,2019-03-11,SP,BF Enterprises Common stock,BFET,ST,S,False,2019-02-07,2019-02-07,1001.0,15000.0,New,Final cash liquidation initiated by corporation.,stock,32
+20011965,2019-07-11,SP,salesforce.com Inc,CRM,OP,P,False,2019-06-14,2019-06-14,50001.0,100000.0,New,Purchased 20 call options with a strike price of $140 and an expiration date of 6/19/20.,call,27
+20011965,2019-07-11,SP,salesforce.com Inc,CRM,OP,P,False,2019-06-18,2019-06-18,100001.0,250000.0,New,Purchased 80 call options with a strike price of $140 and an expiration date of 6/19/20.,call,23
+20012127,2019-08-13,SP,"Netflix, Inc.",NFLX,OP,P,False,2019-07-05,2019-07-05,250001.0,500000.0,New,Purchased 20 call options with a strike price of $250 and an expiration date of 6/19/20.,call,39
+20012127,2019-08-13,SP,"Amazon.com, Inc.",AMZN,OP,P,False,2019-07-22,2019-07-22,500001.0,1000000.0,New,Purchased 20 call options with a strike price of $1700 and an expiration date of 1/17/20.,call,22
+20012127,2019-08-13,SP,"Netflix, Inc.",NFLX,OP,P,False,2019-07-22,2019-07-22,100001.0,250000.0,New,Purchased 30 call options with a strike price of $250 and an expiration date of 6/19/20.,call,22
+20012127,2019-08-13,SP,"REoF XX, LLC",,AB,P,False,2019-07-22,2019-07-22,100001.0,250000.0,New,"Investment in LLC which acquired five Courtyard by Marriott hotels located in Fairfax, VA (one), suburban Baltimore, MD (two), and San Antonio, TX (two).",stock,22
+20012288,2019-09-18,SP,Visa Inc.,V,ST,S,True,2019-08-07,2019-08-07,100001.0,250000.0,New,Sale of 1.000 Shares,stock,42
+20012288,2019-09-18,SP,Visa Inc.,V,ST,S,True,2019-08-07,2019-08-07,100001.0,250000.0,New,"Sale of 1,000 Shares",stock,42
+20012288,2019-09-18,SP,"REoF XXI, llC",,AB,P,False,2019-08-13,2019-08-13,250001.0,500000.0,New,Investment in llC which is acquiring three unique office buildings with a common address of 222 Kearny Street in San Francisco.,stock,36
+20015042,2020-02-11,SP,"amazon.com, Inc.",AMZN,ST,P,False,2020-01-16,2020-01-16,1000001.0,5000000.0,New,"Exercised 30 call options (3,000 shares) expiring 1/17/20 at a strike price of $1600.",exercise,26
+20015042,2020-02-11,SP,"amazon.com, Inc.",AMZN,ST,S,False,2020-01-16,2020-01-16,250001.0,500000.0,New,"sold 20 call options with a strike price of $1,700 and an expiration date of 1/17/20.",call,26
+20015042,2020-02-11,SP,"amazon.com, Inc.",AMZN,ST,S,False,2020-01-16,2020-01-16,250001.0,500000.0,New,"sold 20 call options with a strike price of $1,600 and an expiration date of 1/17/20.",call,26
+20015042,2020-02-11,SP,"Facebook, Inc. - Class a",FB,ST,P,False,2020-01-16,2020-01-16,250001.0,500000.0,New,"Exercised 30 call options (3,000 shares) expiring 1/17/20 at a strike price of $140.",exercise,26
+20015042,2020-02-11,SP,"Facebook, Inc. - Class a",FB,ST,P,False,2020-01-16,2020-01-16,250001.0,500000.0,New,"Exercised 20 call options (2,000 shares) expiring 1/17/20 at a strike price of $150.",exercise,26
+20016155,2020-03-03,SP,"REoF XX, LLC",,AB,P,False,2020-01-21,2020-01-21,50001.0,100000.0,New,"Additional investment in LLC which acquired five Courtyard by Marriott hotels located in Fairfax, VA (one), suburban Baltimore, MD (two) and San Antonio, TX (two).",stock,42
+20016340,2020-04-01,SP,Microsoft Corporation,MSFT,OP,P,False,2020-02-20,2020-02-20,250001.0,500000.0,New,Purchased 100 call options with a strike price of $140 and an expiration date of 3/19/2021.,call,41
+20016340,2020-04-01,SP,"slack Technologies, Inc. Class a",WORK,ST,P,False,2020-02-20,2020-02-20,250001.0,500000.0,New,"Purchased 10,000 shares.",stock,41
+20016340,2020-04-01,SP,Microsoft Corporation,MSFT,OP,P,False,2020-02-21,2020-02-21,500001.0,1000000.0,New,Purchased 100 call options with a strike price of $130 and an expiration date of 3/19/2021.,call,40
+20016340,2020-04-01,SP,alphabet Inc. - Class a,GOOGL,OP,P,False,2020-02-27,2020-02-27,500001.0,1000000.0,New,Purchased 40 call options with a strike price of $1200 and an expiration date of 6/18/2021.,call,34
+20016340,2020-04-01,SP,Microsoft Corporation,MSFT,OP,P,False,2020-02-28,2020-02-28,100001.0,250000.0,New,Purchased 50 call options with a strike price of $130 and an expiration date of 3/19/2021.,call,33
+20016726,2020-06-09,SP,"REoF XX, llC",,AB,P,False,2020-04-28,2020-04-28,15001.0,50000.0,New,"additional investment in llC which acquired five Courtyard by Marriott hotels located in Fairfax, Va (one), suburban Baltimore, MD (two) and San antonio, TX (two).",stock,42
+20016726,2020-06-09,SP,apple Inc.,AAPL,ST,S,True,2020-05-08,2020-05-08,500001.0,1000000.0,New,"Sold 1,700 shares.",stock,32
+20016726,2020-06-09,SP,apple Inc.,AAPL,ST,S,True,2020-05-08,2020-05-08,500001.0,1000000.0,New,"Sold 3,000 shares.",stock,32
+20016726,2020-06-09,SP,apple Inc.,AAPL,ST,S,True,2020-05-08,2020-05-08,1000001.0,5000000.0,New,"Sold 3,300 shares.",stock,32
+20016726,2020-06-09,SP,"Facebook, Inc. - Class a",FB,ST,S,True,2020-05-08,2020-05-08,1000001.0,5000000.0,New,"Sold 5,000 shares.",stock,32
+20016726,2020-06-09,SP,"Interactive Brokers group, Inc.",IBKR,ST,S,True,2020-05-08,2020-05-08,100001.0,250000.0,New,"Sold 3,000 shares.",stock,32
+20016726,2020-06-09,SP,"Morningstar, Inc.",MORN,ST,S,True,2020-05-08,2020-05-08,100001.0,250000.0,New,"Sold 1,700 shares.",stock,32
+20016726,2020-06-09,SP,Visa Inc.,V,ST,S,True,2020-05-08,2020-05-08,500001.0,1000000.0,New,"Sold 3,000 shares.",stock,32
+20016726,2020-06-09,SP,Visa Inc.,V,ST,S,True,2020-05-08,2020-05-08,500001.0,1000000.0,New,"Sold 3,000 shares.",stock,32
+20016961,2020-07-20,SP,"PayPal Holdings, Inc.",PYPL,ST,P,False,2020-06-12,2020-06-12,500001.0,1000000.0,New,"Purchased 5,000 shares.",stock,38
+20016961,2020-07-20,SP,"PayPal Holdings, Inc.",PYPL,ST,P,False,2020-06-12,2020-06-12,500001.0,1000000.0,New,"Purchased 5,000 shares.",stock,38
+20016961,2020-07-20,SP,Apple Inc.,AAPL,OP,S,False,2020-06-18,2020-06-18,1000001.0,5000000.0,New,Sold 100 call options with a strike price of $145 and an expiration date of 6/19/2020.,call,32
+20016961,2020-07-20,SP,"Netflix, Inc.",NFLX,ST,P,False,2020-06-18,2020-06-18,1000001.0,5000000.0,New,"Exercised 50 call options (5,000 shares) expiring 6/19/2020 at a strike price of $250.",exercise,32
+20016961,2020-07-20,SP,Salesforce.com Inc,CRM,ST,P,False,2020-06-18,2020-06-18,1000001.0,5000000.0,New,"Exercised 100 call options (10,000 shares) expiring 6/19/2020 at a strike price of $140.",exercise,32
+20016961,2020-07-20,SP,American Express Company,AXP,OP,P,False,2020-06-24,2020-06-24,100001.0,250000.0,New,Purchased 50 call options with a strike price of $80 and an expiration date of 1/21/2022.,call,26
+20016961,2020-07-20,SP,"PayPal Holdings, Inc.",PYPL,OP,P,False,2020-06-24,2020-06-24,250001.0,500000.0,New,Purchased 50 call options with a strike price of $100 and an expiration date of 1/21/2022.,call,26
+20017123,2020-09-03,SP,"Facebook, Inc. - Class A",FB,ST,S,False,2020-08-07,2020-08-07,1000001.0,5000000.0,New,"Contribution of 5,000 shares held personally to The Paul & Nancy Pelosi Charitable Foundation via transfer between brokerage accounts.",stock,27
+20017460,2020-10-04,SP,"CrowdStrike Holdings, Inc. - Class",CRWD,ST,P,False,2020-09-03,2020-09-03,500001.0,1000000.0,New,"Purchased 5,000 shares.",stock,31
+20017834,2020-12-10,SP,"REOF XX, LLC",,AB,P,False,2020-11-05,2020-11-05,15001.0,50000.0,New,"Additional investment in LLC which acquired five Courtyard by Marriott hotels located in Fairfax, VA (one), suburban Baltimore, MD (two) and San Antonio, TX (two).",stock,35
+20017834,2020-12-10,SP,Apple Inc.,AAPL,ST,S,True,2020-11-06,2020-11-06,500001.0,1000000.0,New,"Contribution of 4,500 shares held personally to the Paul F. Pelosi Endowed Fund at georgetown university.",stock,34
+20018011,2021-01-21,SP,AllianceBernstein Holding l.P.,AB,ST,P,False,2020-12-22,2020-12-22,500001.0,1000000.0,New,"Purchased 20,000 shares.",stock,30
+20018011,2021-01-21,SP,Apple Inc.,AAPL,OP,P,False,2020-12-22,2020-12-22,250001.0,500000.0,New,Purchased 100 call options with a strike price of $100 and an expiration date of 1/21/22.,call,30
+20018011,2021-01-21,SP,"Tesla, Inc.",TSLA,OP,P,False,2020-12-22,2020-12-22,500001.0,1000000.0,New,Purchased 25 call options with a strike price of $500 and an expiration date of 3/18/22.,call,30
+20018011,2021-01-21,SP,Walt Disney Company,DIS,OP,P,False,2020-12-22,2020-12-22,500001.0,1000000.0,New,Purchased 100 call options with a strike price of $100 and an expiration date of 1/21/22.,call,30
+20018355,2021-03-09,SP,AllianceBernstein Holding l.P.,AB,ST,P,False,2021-02-18,2021-02-18,500001.0,1000000.0,New,"Purchased 15,000 shares.",stock,19
+20018355,2021-03-09,SP,AllianceBernstein Holding l.P.,AB,ST,P,False,2021-02-23,2021-02-23,500001.0,1000000.0,New,"Purchased 25,000 shares.",stock,14
+20018539,2021-04-09,SP,Roblox Corporation,RBLX,OT,P,False,2021-03-10,2021-03-10,500001.0,1000000.0,New,"Purchased 10,000 shares.",stock,30
+20018539,2021-04-09,SP,Microsoft Corporation,MSFT,ST,P,False,2021-03-19,2021-03-19,1000001.0,5000000.0,New,"Exercised 150 call options (15,000 shares) expiring 3/19/2021 at a strike price of $130.",exercise,21
+20018539,2021-04-09,SP,Microsoft Corporation,MSFT,ST,P,False,2021-03-19,2021-03-19,1000001.0,5000000.0,New,"Exercised 100 call options (10,000 shares) expiring 3/19/2021 at a strike price of $140.",exercise,21
+20019004,2021-07-02,SP,"Amazon.com, Inc.",AMZN,OP,P,False,2021-05-21,2021-05-21,500001.0,1000000.0,New,"Purchased 20 call options with a strike price of $3,000 and an expiration date of 6/17/22.",call,42
+20019004,2021-07-02,SP,Apple Inc.,AAPL,OP,P,False,2021-05-21,2021-05-21,100001.0,250000.0,New,Purchased 50 call options with a strike price of $100 and an expiration date of 6/17/22.,call,42
+20019004,2021-07-02,SP,NVIDIA Corporation,NVDA,OP,P,False,2021-06-03,2021-06-03,1000001.0,5000000.0,New,Purchased 50 call options with a strike price of $400 and an expiration date of 6/17/22.,call,29
+20019004,2021-07-02,SP,Alphabet Inc. - Class A,GOOGL,ST,P,False,2021-06-18,2021-06-18,1000001.0,5000000.0,New,"Exercised 40 call options (4,000 shares) expiring 6/18/21 at a strike price of $1200.",exercise,14
+20019331,2021-08-20,SP,"REOF XXII, llC",,AB,P,False,2021-07-13,2021-07-13,250001.0,500000.0,New,"Investment in llC which is acquiring eleven Marriott-branded hotels (Rogers, AR - 1, Phoenix, AZ - 1, lakeland, Fl -1, Albany, gA - 1, Andover, MA - 1, Fayetteville, NC - 1, greenville, SC - 1, Johnson City, TN - 1, Beaumont, TX - 1, Richmond, VA - 1, Vancouver, WA - 1) and nine Hilton-branded hotels (Montgomery, Al -2, Schaumberg, Il -1, Jackson, TN - 1, Allen, TX -2, Burleson, TX - 1, El Paso, TX - 1, Irving, TX - 1).",stock,38
+20019331,2021-08-20,SP,"Slack Technologies, Inc. Class A",WORK,ST,S,False,2021-07-22,2021-07-22,250001.0,500000.0,New,"10,000 shares of Slack Technologies Inc. exchanged for 776 shares of Salesforce.com Inc. as a result of a merger, with a cash payout of $267,900.",stock,29
+20019331,2021-08-20,SP,NVIDIA Corporation,NVDA,ST,P,False,2021-07-23,2021-07-23,500001.0,1000000.0,New,"Purchased 5,000 shares.",stock,28
+20019331,2021-08-20,SP,NVIDIA Corporation,NVDA,OP,P,False,2021-07-23,2021-07-23,250001.0,500000.0,New,Purchased 50 call options with a strike price of $100 and an expiration date of 9/16/22.,call,28
+20020106,2021-12-29,SP,Alphabet Inc. - Class C Capital,GOOG,OP,P,False,2021-12-17,2021-12-17,500001.0,1000000.0,New,Purchased 10 call options with a strike price of $2000 and an expiration date of 9/16/22.,call,12
+20020106,2021-12-29,SP,Walt Disney Company,DIS,OP,P,False,2021-12-17,2021-12-17,100001.0,250000.0,New,Purchased 50 call options with a strike price of $130 and an expiration date of 9/16/22.,call,12
+20020106,2021-12-29,SP,Roblox Corporation Class A,RBLX,OP,P,False,2021-12-20,2021-12-20,250001.0,500000.0,New,Purchased 100 call options with a strike price of $100 and an expiration date of 1/20/23.,call,9
+20020106,2021-12-29,SP,Salesforce.com Inc,CRM,OP,P,False,2021-12-20,2021-12-20,500001.0,1000000.0,New,Purchased 100 call options with a strike price of $210 and an expiration date of 1/20/23.,call,9
+20020106,2021-12-29,SP,Salesforce.com Inc,CRM,OP,P,False,2021-12-20,2021-12-20,100001.0,250000.0,New,Purchased 30 call options with a strike price of $210 and an expiration date of 1/20/23.,call,9
+20020106,2021-12-29,SP,"Micron Technology, Inc.",MU,OP,P,False,2021-12-21,2021-12-21,250001.0,500000.0,New,Purchased 100 call options with a strike price of $50 and an expiration date of 9/16/22.,call,8
+20020106,2021-12-29,SP,"REOF XX, llC",,AB,P,False,2021-12-22,2021-12-22,50001.0,100000.0,New,"Additional investment in llC which acquired five Courtyard by Marriott hotels located in Fairfax, VA (one), suburban Baltimore, MD (two) and San Antonio, TX (two).",stock,7
+20020208,2022-01-12,SP,Apple Inc.,AAPL,ST,S,True,2021-12-30,2021-12-30,500001.0,1000000.0,New,"Contribution of 3,000 shares held personally to the Paul F. Pelosi Endowed Fund at georgetown university.",stock,13
+20020208,2022-01-12,SP,Apple Inc.,AAPL,ST,S,True,2021-12-30,2021-12-30,500001.0,1000000.0,New,"Contribution of 3,000 shares held personally to Trinity College.",stock,13
+20020515,2022-02-28,SP,American Express Company,AXP,ST,P,False,2022-01-21,2022-01-21,250001.0,500000.0,New,"Exercised 50 call options (5,000 shares) expiring 1/21/22 at a strike price of $80.",exercise,38
+20020515,2022-02-28,SP,Apple Inc.,AAPL,ST,P,False,2022-01-21,2022-01-21,1000001.0,5000000.0,New,"Exercised 100 call options (10,000 shares) expiring 1/21/22 at a strike price of $100.",exercise,38
+20020515,2022-02-28,SP,"PayPal Holdings, Inc.",PYPL,ST,P,False,2022-01-21,2022-01-21,500001.0,1000000.0,New,"Exercised 50 call options (5,000 shares) expiring 1/21/22 at a strike price of $100.",exercise,38
+20020515,2022-02-28,SP,Walt Disney Company,DIS,ST,P,False,2022-01-21,2022-01-21,1000001.0,5000000.0,New,"Exercised 100 call options (10,000 shares) expiring 1/21/22 at a strike price of $100.",exercise,38
+20020515,2022-02-28,SP,AllianceBernstein Holding l.P.,AB,OL,P,False,2022-01-27,2022-01-27,250001.0,500000.0,New,"Purchased 10,000 units in a global asset management firm providing investment management and research services worldwide to institutional, high-net-worth and retail investors.",other,32
+20020662,2022-03-21,SP,"Tesla, Inc.",TSLA,ST,P,False,2022-03-17,2022-03-17,1000001.0,5000000.0,New,"Exercised 25 call options (2,500 shares) expiring 3/18/22 at a strike price of $500.",exercise,4
+20020916,2022-05-03,SP,"Warner Bros. Discovery, Inc. - Series",T,ST,E,False,2022-04-11,2022-04-11,50001.0,100000.0,New,,stock,22
+20021142,2022-06-03,SP,Apple Inc.,AAPL,OP,P,False,2022-05-13,2022-05-13,500001.0,1000000.0,New,,call,21
+20021142,2022-06-03,SP,Apple Inc.,AAPL,OP,P,False,2022-05-24,2022-05-24,250001.0,500000.0,New,,call,10
+20021142,2022-06-03,SP,Microsoft Corporation,MSFT,OP,P,False,2022-05-24,2022-05-24,50001.0,100000.0,New,,call,10
+20021142,2022-06-03,SP,Microsoft Corporation,MSFT,OP,P,False,2022-05-24,2022-05-24,250001.0,500000.0,New,,call,10
+20021374,2022-07-14,SP,Apple Inc.,AAPL,OP,S,True,2022-06-17,2022-06-17,100001.0,250000.0,New,,call,27
+20021374,2022-07-14,SP,NVIDIA Corporation,NVDA,ST,P,False,2022-06-17,2022-06-17,1000001.0,5000000.0,New,,stock,27
+20021374,2022-07-14,SP,Visa Inc.,V,ST,S,True,2022-06-21,2022-06-21,1000001.0,5000000.0,New,,stock,23
+20021438,2022-07-26,SP,NVIDIA Corporation,NVDA,ST,S,False,2022-07-26,2022-07-26,1000001.0,5000000.0,New,,stock,0
+20021675,2022-09-09,SP,"REOF XX, LLC",,AB,P,False,2022-08-24,2022-08-24,15001.0,50000.0,New,,stock,16
+20021837,2022-10-14,SP,Alphabet Inc. - Class C Capital Stock,GOOG,ST,P,False,2022-09-16,2022-09-16,1000001.0,5000000.0,New,,stock,28
+20021837,2022-10-14,SP,"Micron Technology, Inc.",MU,OP,S,False,2022-09-16,2022-09-16,15001.0,50000.0,New,,call,28
+20021837,2022-10-14,SP,NVIDIA Corporation,NVDA,OP,S,False,2022-09-16,2022-09-16,100001.0,250000.0,New,,call,28
+20021837,2022-10-14,SP,Walt Disney Company,DIS,OP,S,False,2022-09-16,2022-09-16,1.0,130.0,New,,call,28
+20022063,2022-11-30,SP,Visa Inc.,V,ST,S,True,2022-11-08,2022-11-08,1000001.0,5000000.0,New,,stock,22
+20022260,2023-01-12,SP,Alphabet Inc. - Class A,GOOGL,ST,S,True,2022-12-20,2022-12-20,500001.0,1000000.0,New,,stock,23
+20022260,2023-01-12,SP,"Salesforce, Inc.",CRM,OP,S,False,2022-12-20,2022-12-20,9.0,210.0,New,,call,23
+20022260,2023-01-12,SP,"Tesla, Inc.",TSLA,ST,S,True,2022-12-20,2022-12-20,500001.0,1000000.0,New,,stock,23
+20022260,2023-01-12,SP,Alphabet Inc. - Class A,GOOGL,ST,S,True,2022-12-21,2022-12-21,500001.0,1000000.0,New,,stock,22
+20022260,2023-01-12,SP,"PayPal Holdings, Inc.",PYPL,ST,S,True,2022-12-21,2022-12-21,250001.0,500000.0,New,,stock,22
+20022260,2023-01-12,SP,Walt Disney Company,DIS,ST,S,True,2022-12-21,2022-12-21,500001.0,1000000.0,New,,stock,22
+20022260,2023-01-12,SP,"REOF XX, LLC",,AB,P,False,2022-12-27,2022-12-27,15001.0,50000.0,New,,stock,16
+20022260,2023-01-12,SP,Alliance Bernstein Holding L.P. Units,AB,OL,S,True,2022-12-28,2022-12-28,500001.0,1000000.0,New,,other,15
+20022260,2023-01-12,SP,Alphabet Inc. - Class A,GOOGL,ST,S,True,2022-12-28,2022-12-28,500001.0,1000000.0,New,,stock,15
+20022260,2023-01-12,SP,"PayPal Holdings, Inc.",PYPL,ST,S,True,2022-12-28,2022-12-28,250001.0,500000.0,New,,stock,15
+20022260,2023-01-12,SP,Roblox Corporation Class A,RBLX,ST,S,True,2022-12-28,2022-12-28,100001.0,250000.0,New,,stock,15
+20022260,2023-01-12,SP,"Netflix, Inc.",NFLX,ST,S,True,2022-12-29,2022-12-29,250001.0,500000.0,New,,stock,14
+20022260,2023-01-12,SP,"Netflix, Inc.",NFLX,ST,S,True,2022-12-30,2022-12-30,250001.0,500000.0,New,,stock,13
+20022320,2023-01-25,SP,Roblox Corporation Class A,RBLX,OP,S,False,2023-01-20,2023-01-20,1.0,100.0,New,,call,5
+20022664,2023-04-06,SP,"REOF XXV, LLC",,AB,P,False,2023-03-09,2023-03-09,500001.0,1000000.0,New,,stock,28
+20022664,2023-04-06,SP,Apple Inc.,AAPL,ST,P,False,2023-03-17,2023-03-17,500001.0,1000000.0,New,,stock,20
+20023080,2023-06-06,SP,Apple Inc.,AAPL,ST,S,True,2023-05-08,2023-05-08,500001.0,1000000.0,New,,stock,29
+20023192,2023-06-22,SP,Apple Inc.,AAPL,ST,P,False,2023-06-15,2023-06-15,250001.0,500000.0,New,,stock,7
+20023192,2023-06-22,SP,Microsoft Corporation,MSFT,ST,P,False,2023-06-15,2023-06-15,500001.0,1000000.0,New,,stock,7
+20024186,2023-12-21,SP,NVIDIA Corporation,NVDA,OP,P,False,2023-11-22,2023-11-22,1000001.0,5000000.0,New,,call,29
+20024542,2024-02-23,SP,"Palo Alto Networks, Inc.",PANW,OP,P,False,2024-02-12,2024-02-12,500001.0,1000000.0,New,,call,11
+20024542,2024-02-23,SP,"Palo Alto Networks, Inc.",PANW,OP,P,False,2024-02-21,2024-02-21,100001.0,250000.0,New,,call,2
+20024625,2024-03-21,SP,"Forge Investments, LLC",,AB,P,False,2024-03-04,2024-03-04,1000001.0,5000000.0,New,,stock,17
+20025368,2024-07-02,SP,Broadcom Inc. - Common Stock,AVGO,OP,P,False,2024-06-24,2024-06-24,1000001.0,5000000.0,New,,call,8
+20025368,2024-07-02,SP,"Tesla, Inc. - Common Stock",TSLA,ST,S,False,2024-06-24,2024-06-24,250001.0,500000.0,New,,stock,8
+20025368,2024-07-02,SP,NVIDIA Corporation - Common,NVDA,ST,P,False,2024-06-26,2024-06-26,1000001.0,5000000.0,New,,stock,6
+20025368,2024-07-02,SP,Visa Inc.,V,ST,S,True,2024-07-01,2024-07-01,500001.0,1000000.0,New,,stock,1
+20025535,2024-07-30,SP,Microsoft Corporation - Common,MSFT,ST,S,True,2024-07-26,2024-07-26,1000001.0,5000000.0,New,,stock,4
+20025535,2024-07-30,SP,NVIDIA Corporation - Common Stock,NVDA,ST,P,False,2024-07-26,2024-07-26,1000001.0,5000000.0,New,,stock,4
+20025819,2024-09-11,SP,"REOF XXVI, LLC",,AB,P,False,2024-08-13,2024-08-13,250001.0,500000.0,New,,stock,29
+20026590,2025-01-17,SP,NVIDIA Corporation - Common,NVDA,ST,P,False,2024-12-20,2024-12-20,500001.0,1000000.0,New,,stock,28
+20026590,2025-01-17,SP,"Palo Alto Networks, Inc.",PANW,ST,P,False,2024-12-20,2024-12-20,1000001.0,5000000.0,New,,stock,28
+20026590,2025-01-17,SP,Apple Inc. - Common Stock,AAPL,ST,S,True,2024-12-31,2024-12-31,5000001.0,25000000.0,New,,stock,17
+20026590,2025-01-17,SP,NVIDIA Corporation - Common,NVDA,ST,S,True,2024-12-31,2024-12-31,1000001.0,5000000.0,New,,stock,17
+20026590,2025-01-17,SP,Alphabet Inc. - Class A Common,GOOGL,OP,P,False,2025-01-14,2025-01-14,250001.0,500000.0,New,,call,3
+20026590,2025-01-17,SP,"Amazon.com, Inc. - Common Stock",AMZN,OP,P,False,2025-01-14,2025-01-14,250001.0,500000.0,New,,call,3
+20026590,2025-01-17,SP,NVIDIA Corporation - Common,NVDA,OP,P,False,2025-01-14,2025-01-14,250001.0,500000.0,New,,call,3
+20026590,2025-01-17,SP,"Tempus AI, Inc. - Class A Common",TEM,OP,P,False,2025-01-14,2025-01-14,50001.0,100000.0,New,,call,3
+20026590,2025-01-17,SP,Vistra Corp. Common Stock,VST,OP,P,False,2025-01-14,2025-01-14,500001.0,1000000.0,New,,call,3
+20030630,2025-07-09,SP,Broadcom Inc. - Common Stock,AVGO,ST,P,False,2025-06-20,2025-06-20,1000001.0,5000000.0,New,,stock,19
+20030630,2025-07-09,SP,Matthews International Mutual Fund,,OT,S,False,2025-06-20,2025-06-20,15001.0,50000.0,New,,other,19
+20033337,2025-10-24,SP,Apple Inc. - Common Stock,AAPL,ST,S,True,2025-10-22,2025-10-22,100001.0,250000.0,New,,stock,2
+20033725,2026-01-23,SP,"Amazon.com, Inc. - Common Stock",AMZN,ST,S,True,2025-12-24,2025-12-24,1000001.0,5000000.0,New,,stock,30
+20033725,2026-01-23,SP,Apple Inc. - Common Stock,AAPL,ST,S,True,2025-12-24,2025-12-24,5000001.0,25000000.0,New,,stock,30
+20033725,2026-01-23,SP,NVIDIA Corporation - Common Stock,NVDA,ST,S,True,2025-12-24,2025-12-24,1000001.0,5000000.0,New,,stock,30
+20033725,2026-01-23,SP,Alphabet Inc. - Class A Common,GOOGL,OP,P,False,2025-12-30,2025-12-30,250001.0,500000.0,New,,call,24
+20033725,2026-01-23,SP,Alphabet Inc. - Class A Common,GOOGL,ST,S,True,2025-12-30,2025-12-30,1000001.0,5000000.0,New,,stock,24
+20033725,2026-01-23,SP,"Amazon.com, Inc. - Common Stock",AMZN,OP,P,False,2025-12-30,2025-12-30,100001.0,250000.0,New,,call,24
+20033725,2026-01-23,SP,Apple Inc. - Common Stock,AAPL,OP,P,False,2025-12-30,2025-12-30,250001.0,500000.0,New,,call,24
+20033725,2026-01-23,SP,Apple Inc. - Common Stock,AAPL,ST,S,True,2025-12-30,2025-12-30,5000001.0,25000000.0,New,,stock,24
+20033725,2026-01-23,SP,NVIDIA Corporation - Common Stock,NVDA,OP,P,False,2025-12-30,2025-12-30,100001.0,250000.0,New,,call,24
+20033725,2026-01-23,SP,"PayPal Holdings, Inc. - Common",PYPL,ST,S,False,2025-12-30,2025-12-30,250001.0,500000.0,New,,stock,24
+20033725,2026-01-23,SP,Walt Disney Company,DIS,ST,S,False,2025-12-30,2025-12-30,1000001.0,5000000.0,New,,stock,24
+20033725,2026-01-23,SP,"Versant Media Group, Inc. - Class A",VSNT,ST,E,False,2026-01-02,2026-01-02,15.0,15.0,New,,stock,21
+20033725,2026-01-23,SP,AllianceBernstein Holding L.P. Units,AB,AB,P,False,2026-01-16,2026-01-16,1000001.0,5000000.0,New,,stock,7
+20033725,2026-01-23,SP,Alphabet Inc. - Class A Common,GOOGL,ST,P,False,2026-01-16,2026-01-16,500001.0,1000000.0,New,,stock,7
+20033725,2026-01-23,SP,"Amazon.com, Inc. - Common Stock",AMZN,ST,P,False,2026-01-16,2026-01-16,500001.0,1000000.0,New,,stock,7
+20033725,2026-01-23,SP,NVIDIA Corporation - Common Stock,NVDA,ST,P,False,2026-01-16,2026-01-16,250001.0,500000.0,New,,stock,7
+20033725,2026-01-23,SP,"Tempus AI, Inc. - Class A Common",TEM,ST,P,False,2026-01-16,2026-01-16,50001.0,100000.0,New,,stock,7
+20033725,2026-01-23,SP,Vistra Corp. Common Stock,VST,ST,P,False,2026-01-16,2026-01-16,100001.0,250000.0,New,,stock,7
+20034836,2026-06-23,SP,Intel Corporation - Common Stock,INTC,OP,P,False,2026-05-29,2026-05-29,1000001.0,5000000.0,New,,call,25
+20034836,2026-06-23,SP,"Uber Technologies, Inc. Common",UBER,OP,P,False,2026-05-29,2026-05-29,500001.0,1000000.0,New,,call,25
+20035143,2026-08-21,SP,Bloom Energy Corporation Class A,BE,ST,P,False,2026-07-24,2026-07-24,1000001.0,5000000.0,New,,stock,28
+20035143,2026-08-21,SP,Bloom Energy Corporation Class A,BE,OP,P,False,2026-07-24,2026-07-24,1000001.0,5000000.0,New,,call,28
+20035143,2026-08-21,SP,Intel Corporation - Common Stock,INTC,OP,P,False,2026-07-24,2026-07-24,250001.0,500000.0,New,,call,28
+20035143,2026-08-21,SP,Intel Corporation - Common Stock,INTC,ST,P,False,2026-07-24,2026-07-24,500001.0,1000000.0,New,,stock,28
+20035143,2026-08-21,SP,"REOF XXV, LLC",,AB,P,False,2026-07-27,2026-07-27,500001.0,1000000.0,New,,stock,25
+20035143,2026-08-21,SP,Bloom Energy Corporation Class A,BE,ST,P,False,2026-07-28,2026-07-28,500001.0,1000000.0,New,,stock,24
+20035143,2026-08-21,SP,Bloom Energy Corporation Class A,BE,OP,P,False,2026-07-28,2026-07-28,500001.0,1000000.0,New,,call,24
