@@ -37,6 +37,22 @@ pre-specified parameters, net of 10 bp costs and 100 bp borrow:
   (0.22), and waiting a further 5–45 sessions is no worse. There is no short-lived private information to be late to.
 * Fragile to costs: doubling them takes the Sharpe to 0.03.
 
+**Diversification and Sharpe improvement** ([`results/diversification.md`](results/diversification.md)):
+
+* Correlation with SPY +0.01, 60/40 0.00, bonds −0.06, gold −0.07; rolling 1-yr correlation with SPY stays in
+  [−0.24, +0.27]. Only loadings: +0.22 to QQQ, −0.22 to IWM (the growth residual).
+* Moving 20 % of a 60/40 into the book: Sharpe 0.57 → 0.65, max DD −21.7 % → −18.6 %, CAGR 9.0 → 8.8 %. As a
+  25–50 % overlay on 60/40: Sharpe 0.57 → 0.65–0.68 with CAGR 9.0 → 10.3–11.5 %. Bootstrap CI on the Sharpe gain
+  includes zero (P(gain ≤ 0) = 0.28). The IS-optimal weight (35 %) still helps OOS (0.11 → 0.20).
+* Positive in fast crashes (COVID +12.5 %, regional-bank stress +5.2 %, Q4-2018 +0.8 %), negative in the slow
+  2022 growth bear (−8.8 %). A diversifier, not a tail hedge.
+* Of 13 pre-declared Sharpe-improving changes, 8 beat the baseline in both IS and OOS. **Vol-targeting to 10 %**
+  (IS 0.66 / OOS 0.39 vs 0.50 / 0.21, max DD −20 %) and a **slower Cramer leg** (63d) are the a-priori
+  defensible ones; a pre-declared combo of both plus no-exit-on-sales reaches IS 0.88 / OOS 0.70 / full 0.81.
+* The **growth tilt is the return**: a two-factor SPY+QQQ hedge that truly neutralises QQQ beta leaves Sharpe 0.12.
+  The IS-optimal leg mix (drop the Cramer leg, IS 0.66) is the *worst* OOS choice (−0.19): the short leg carried
+  2022.
+
 ---
 
 ## 1. Is it actually possible? (the disclosure-lag problem)
@@ -80,6 +96,8 @@ columns and everything re-runs.
 * **Short leg:** each new bullish Cramer call opens an equal-weighted short held `cramer_hold_days` sessions.
 * **Neutralisation:** holdings-based trailing betas (`Σ wᵢ βᵢ`, βᵢ shrunk toward 1) give the ex-ante net beta; an
   SPY overlay brings it to the 0 target every day. Mandate: |β| ≤ 0.10. Realised rolling betas are reported.
+  (`hedge_tickers` accepts several instruments for a joint multi-factor hedge; `vol_target` scales the book —
+  both are off in the baseline and used only in the diversification analysis.)
 * **Frictions:** 10 bp one-way costs on all turnover, 100 bp/yr borrow, cash collateral earns 13-week T-bills.
 
 Pre-specified parameters (fixed before any result was seen): `pelosi_hold_days=252`, `cramer_hold_days=21`,
@@ -105,7 +123,8 @@ cd pelosi-cramer-neutral
 pip install -r requirements.txt
 python scripts/fetch_data.py        # optional: re-download PTRs, Cramer data, prices (Yahoo is slow/throttled)
 python scripts/run_backtest.py      # ~15 min; writes results/report.md, results/figures, results/tables
-python -m pytest tests              # parser + point-in-time guarantees
+python scripts/run_diversification.py  # ~30 s; writes results/diversification.md (blends, IS/OOS candidates)
+python -m pytest tests              # parser, point-in-time and hedging guarantees
 ```
 
 The committed `data/` folder already contains everything `run_backtest.py` needs, so the report can be
@@ -120,13 +139,14 @@ pcn/
   data/cramer.py       Kull transcript signals + TheStreet cross-check
   data/prices.py       Yahoo + FIGI price panel, cleaning, jump audit, T-bill conversion
   signals.py         point-in-time target weights for each leg
-  portfolio.py       L/S engine, holdings-based beta, SPY overlay, costs/borrow
+  portfolio.py       L/S engine, holdings-based (multi-factor) beta, hedge overlay, vol target, costs/borrow
   metrics.py         Sharpe, Sortino, MDD, alpha/beta (HAC), IR, rolling beta ...
   robustness.py      grid, walk-forward, lag sensitivity, rule sensitivity, placebos, bootstrap
+  diversification.py correlations, blends/overlays, conditional returns, leg mix, IS->OOS candidate tests
   report.py          figures + markdown tables
-scripts/fetch_data.py, scripts/run_backtest.py
+scripts/fetch_data.py, scripts/run_backtest.py, scripts/run_diversification.py
 data/                committed inputs (transactions, signals, price panel)
-results/             report.md, figures/, tables/
+results/             report.md, diversification.md, figures/, tables/
 tests/
 ```
 

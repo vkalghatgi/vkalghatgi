@@ -175,6 +175,83 @@ def fig_lag_hist(tx: pd.DataFrame, path: Path) -> str:
     return _save(fig, path)
 
 
+# ---------------------------------------------------------------- diversification figures
+def fig_frontier(strat: pd.Series, bases: dict[str, pd.Series], rf: pd.Series, weights, path: Path) -> str:
+    """Risk/return of blends: each curve moves from 100 % base (w=0) to 100 % strategy (w=1)."""
+    from .diversification import blend
+    from .metrics import ann_vol, cagr
+
+    fig, ax = plt.subplots(figsize=(7.5, 5))
+    for name, base in bases.items():
+        pts = [(ann_vol(blend(strat, base, w, rf, "fund")), cagr(blend(strat, base, w, rf, "fund"))) for w in weights]
+        xs, ys = zip(*pts)
+        ax.plot(xs, ys, marker="o", ms=3, label=f"{name} → strategy")
+        for w, x, y in zip(weights, xs, ys):
+            if w in (0.0, 0.2, 0.5):
+                ax.annotate(f"{w:.0%}", (x, y), textcoords="offset points", xytext=(4, 4), fontsize=7)
+    ax.scatter([ann_vol(strat)], [cagr(strat)], color="black", zorder=5, label="100 % L/S book")
+    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.set_xlabel("annualised volatility")
+    ax.set_ylabel("CAGR")
+    ax.set_title("Blending the L/S book into conventional portfolios (labels = weight in the book)")
+    ax.legend(fontsize=8)
+    return _save(fig, path)
+
+
+def fig_rolling_corr(corrs: dict[str, pd.Series], path: Path) -> str:
+    fig, ax = plt.subplots(figsize=(10, 3.8))
+    for name, s in corrs.items():
+        ax.plot(s, lw=1.2, label=name)
+    ax.axhline(0, color="black", lw=0.8)
+    ax.set_ylim(-1, 1)
+    ax.set_title("Rolling 1-year correlation of the L/S book with conventional assets")
+    ax.legend(fontsize=8, ncol=len(corrs))
+    return _save(fig, path)
+
+
+def fig_conditional(cond: pd.DataFrame, path: Path) -> str:
+    q = cond.iloc[:5]
+    fig, ax = plt.subplots(figsize=(8, 3.8))
+    x = np.arange(len(q))
+    ax.bar(x - 0.2, q["spy_avg"], width=0.4, label="SPY avg monthly return", color="tab:blue")
+    ax.bar(x + 0.2, q["strat_avg"], width=0.4, label="L/S book avg monthly return", color="black")
+    ax.set_xticks(x)
+    ax.set_xticklabels([str(i).replace(" (", "\n(") for i in q.index], fontsize=8)
+    ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.axhline(0, color="grey", lw=0.8)
+    ax.set_title("Strategy performance conditional on the SPY month (quintiles)")
+    ax.legend(fontsize=8)
+    return _save(fig, path)
+
+
+def fig_candidates(rets: pd.DataFrame, split_date: str, path: Path) -> str:
+    fig, ax = plt.subplots(figsize=(10, 5))
+    for c in rets.columns:
+        ax.plot((1 + rets[c]).cumprod(), lw=2 if c.startswith("Baseline") else 1.2, label=c,
+                color="black" if c.startswith("Baseline") else None)
+    ax.axvline(pd.Timestamp(split_date), color="red", ls="--", lw=1)
+    ax.text(pd.Timestamp(split_date), ax.get_ylim()[1] * 0.97, "  OOS →", color="red")
+    ax.set_title("Sharpe-improvement candidates: growth of $1 (all chosen before looking at OOS)")
+    ax.legend(fontsize=8)
+    return _save(fig, path)
+
+
+def fig_candidate_bars(df: pd.DataFrame, path: Path) -> str:
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    y = np.arange(len(df))
+    ax.barh(y - 0.2, df["is_sharpe"], height=0.4, label="in-sample 2018–21", color="tab:blue")
+    ax.barh(y + 0.2, df["oos_sharpe"], height=0.4, label="out-of-sample 2022–24", color="tab:orange")
+    ax.set_yticks(y)
+    ax.set_yticklabels(df.index, fontsize=8)
+    ax.invert_yaxis()
+    ax.axvline(0, color="black", lw=0.8)
+    ax.set_xlabel("Sharpe")
+    ax.set_title("Candidate modifications: does the IS improvement survive OOS?")
+    ax.legend(fontsize=8)
+    return _save(fig, path)
+
+
 def md_table(df: pd.DataFrame, floatfmt: str = "{:.3f}") -> str:
     d = df.copy()
     for c in d.columns:
