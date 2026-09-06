@@ -120,7 +120,7 @@ def rule_sensitivity(inp: Inputs, params: StrategyParams, start: str, end: str, 
         ("Pelosi: no per-name cap (100%)", dict(pelosi_max_weight=1.0)),
         ("Pelosi: do not close on disclosed sales", dict(pelosi_close_on_sale=False)),
         ("Beta: leg-return-series method", dict(beta_method="leg")),
-        ("Hedge instrument: QQQ instead of SPY", dict(hedge_ticker="QQQ")),
+        ("Hedge instrument: QQQ instead of SPY", dict(hedge_tickers=("QQQ",))),
         ("Costs doubled (20 bp, 200 bp borrow)", dict(cost_bps=20.0, borrow_bps_annual=200.0)),
         ("No costs, no borrow", dict(cost_bps=0.0, borrow_bps_annual=0.0)),
     ]

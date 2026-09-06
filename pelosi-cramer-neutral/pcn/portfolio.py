@@ -88,12 +88,64 @@ def stock_betas(returns: pd.DataFrame, mkt: pd.Series, window: int, prior: float
     return _STOCK_BETA_CACHE[key]
 
 
-def holdings_beta(weights: pd.DataFrame, betas: pd.DataFrame) -> pd.Series:
+def holdings_beta(weights: pd.DataFrame, betas: pd.DataFrame, fill: float = 1.0) -> pd.Series:
     """Beta-dollars of a book: sum_i w_i(t) * beta_i(t) (unit-notional beta = this / gross)."""
     if weights.shape[1] == 0:
         return pd.Series(0.0, index=weights.index)
-    b = betas.reindex(index=weights.index, columns=weights.columns).fillna(1.0)
+    b = betas.reindex(index=weights.index, columns=weights.columns).fillna(fill)
     return (weights * b).sum(axis=1)
+
+
+_FACTOR_BETA_CACHE: dict[tuple, dict[str, pd.DataFrame]] = {}
+
+
+def stock_factor_betas(
+    returns: pd.DataFrame, factors: pd.DataFrame, window: int, prior_obs: int = 20
+) -> dict[str, pd.DataFrame]:
+    """Trailing multi-factor betas of every stock on the hedge instruments (joint OLS, rolling).
+
+    beta_t = Sigma_FF(t)^-1 * Cov_Fr(t), shrunk toward the prior (1 on the first
+    instrument, 0 on the others) with ``prior_obs`` pseudo-observations. Returns one
+    DataFrame (dates x stocks) per factor. Single-factor case reduces to ``stock_betas``.
+    """
+    names = list(factors.columns)
+    key = (id(returns), tuple(names), window, prior_obs)
+    if key in _FACTOR_BETA_CACHE:
+        return _FACTOR_BETA_CACHE[key]
+    if len(names) == 1:
+        out = {names[0]: stock_betas(returns, factors[names[0]], window, 1.0, prior_obs)}
+        _FACTOR_BETA_CACHE[key] = out
+        return out
+    minp = max(20, window // 4)
+    T, S, N = len(returns), returns.shape[1], len(names)
+    C = np.stack([returns.rolling(window, min_periods=minp).cov(factors[f]).values for f in names], axis=1)  # T x N x S
+    Sig = np.empty((T, N, N))
+    for i, f in enumerate(names):
+        for j, g in enumerate(names):
+            Sig[:, i, j] = factors[f].rolling(window, min_periods=minp).cov(factors[g]).values
+    bad = np.isnan(Sig).any(axis=(1, 2))
+    Sig[bad] = np.eye(N)
+    Cf = np.nan_to_num(C, nan=0.0)
+    beta = np.linalg.solve(Sig, Cf)                                     # T x N x S
+    beta[bad] = np.nan
+    beta[np.isnan(C)] = np.nan
+    n = returns.rolling(window, min_periods=1).count().values          # T x S
+    prior = np.zeros(N)
+    prior[0] = 1.0
+    out = {}
+    for i, f in enumerate(names):
+        b = pd.DataFrame(beta[:, i, :], index=returns.index, columns=returns.columns)
+        shrunk = (n * b + prior_obs * prior[i]) / (n + prior_obs)
+        lo, hi = (-1.0, 4.0) if i == 0 else (-3.0, 3.0)
+        out[f] = shrunk.fillna(prior[i]).clip(lower=lo, upper=hi)
+    _FACTOR_BETA_CACHE[key] = out
+    return out
+
+
+def vol_target_scale(r: pd.Series, target: float, window: int = 63, max_lev: float = 2.0) -> pd.Series:
+    """Leverage applied at each close so that trailing realised vol matches ``target`` (uses only past returns)."""
+    vol = r.rolling(window, min_periods=window // 2).std() * np.sqrt(252)
+    return (target / vol).clip(upper=max_lev).fillna(1.0)
 
 
 def run_backtest(
@@ -124,37 +176,58 @@ def run_backtest(
     n_long = (wl > 0).sum(axis=1)
     n_short = (ws > 0).sum(axis=1)
 
-    spy = rets[params.hedge_ticker].reindex(cal).fillna(0.0)   # hedge instrument returns (SPY by default)
+    hedge_names = list(params.hedge_tickers)
+    factors = rets[hedge_names].reindex(cal).fillna(0.0)       # hedge instrument returns (SPY by default)
+    spy = factors[hedge_names[0]]
     gl_prev, gs_prev = gross_long.shift(1), gross_short.shift(1)
     if params.beta_method == "holdings":
-        # beta of what we actually hold tonight: sum of position weight x trailing stock beta
-        sb = stock_betas(rets, spy, params.beta_window)
-        bd_long, bd_short = holdings_beta(wl, sb), holdings_beta(ws, sb)
-        beta_long = (bd_long / gross_long).where(gross_long > 0, 1.0)
-        beta_short = (bd_short / gross_short).where(gross_short > 0, 1.0)
+        # beta of what we actually hold tonight: sum of position weight x trailing stock beta, per hedge factor
+        fb = stock_factor_betas(rets, factors, params.beta_window)
+        bd_long = {f: holdings_beta(wl, fb[f], 1.0 if i == 0 else 0.0) for i, f in enumerate(hedge_names)}
+        bd_short = {f: holdings_beta(ws, fb[f], 1.0 if i == 0 else 0.0) for i, f in enumerate(hedge_names)}
+        beta_long = (bd_long[hedge_names[0]] / gross_long).where(gross_long > 0, 1.0)
+        beta_short = (bd_short[hedge_names[0]] / gross_short).where(gross_short > 0, 1.0)
     else:
+        if len(hedge_names) > 1:
+            raise ValueError("beta_method='leg' supports a single hedge instrument")
         # beta of the leg's own trailing return series (unit-notional, NaN when the leg is empty)
         unit_long = (r_long / gl_prev).where(gl_prev > 0)
         unit_short = (r_short / gs_prev).where(gs_prev > 0)
         beta_long = trailing_beta(unit_long, spy, params.beta_window)
         beta_short = trailing_beta(unit_short, spy, params.beta_window)
+        bd_long = {hedge_names[0]: gross_long * beta_long}
+        bd_short = {hedge_names[0]: gross_short * beta_short}
 
-    # hedge decided at the close of t using information through t
-    net_beta_exante = gross_long * beta_long - gross_short * beta_short
-    hedge = (-(net_beta_exante - params.beta_target)) if params.beta_hedge else pd.Series(0.0, index=cal)
-    hedge = hedge.fillna(0.0).clip(-params.max_hedge, params.max_hedge)
-    r_hedge = hedge.shift(1).fillna(0.0) * spy
-    hedge_drift = hedge.shift(1).fillna(0.0) * (1 + spy)
-    to_hedge = (hedge - hedge_drift).abs()
+    # hedge decided at the close of t using information through t; one position per hedge instrument
+    hedges: dict[str, pd.Series] = {}
+    for i, f in enumerate(hedge_names):
+        net = bd_long[f] - bd_short[f]
+        target = params.beta_target if i == 0 else 0.0
+        h = (-(net - target)) if params.beta_hedge else pd.Series(0.0, index=cal)
+        hedges[f] = h.fillna(0.0).clip(-params.max_hedge, params.max_hedge)
+    hedge_df = pd.DataFrame(hedges)
+    r_hedge = (hedge_df.shift(1).fillna(0.0) * factors).sum(axis=1)
+    hedge_drift = hedge_df.shift(1).fillna(0.0) * (1 + factors)
+    to_hedge = (hedge_df - hedge_drift).abs().sum(axis=1)
+    net_beta_exante = bd_long[hedge_names[0]] - bd_short[hedge_names[0]]
+    hedge = hedge_df[hedge_names[0]]
 
     cash = (1.0 - gross_long + gross_short).shift(1).fillna(1.0)
-    r_cash = md.rf_daily.reindex(cal).fillna(0.0) * cash if params.earn_cash_rf else pd.Series(0.0, index=cal)
+    rf = md.rf_daily.reindex(cal).fillna(0.0)
+    r_cash = rf * cash if params.earn_cash_rf else pd.Series(0.0, index=cal)
     borrow = gs_prev.fillna(0.0) * params.borrow_bps_annual / 1e4 / 252
     costs = (to_long + to_short + to_hedge) * params.cost_bps / 1e4
 
+    ret = r_long - r_short + r_hedge + r_cash - borrow - costs
+    lev = pd.Series(1.0, index=cal)
+    if params.vol_target is not None:
+        # scale the whole book (positions, hedge, costs) by yesterday's leverage; excess cash earns rf
+        lev = vol_target_scale(ret, params.vol_target, max_lev=params.max_leverage)
+        ret = rf + lev.shift(1).fillna(1.0) * (ret - rf)
+
     out = pd.DataFrame(
         {
-            "ret": r_long - r_short + r_hedge + r_cash - borrow - costs,
+            "ret": ret,
             "ret_gross": r_long - r_short + r_hedge,
             "ret_long": r_long,
             "ret_short": -r_short,
@@ -166,16 +239,19 @@ def run_backtest(
             "gross_long": gross_long,
             "gross_short": gross_short,
             "hedge_w": hedge,
+            "leverage": lev,
             "n_long": n_long,
             "n_short": n_short,
             "beta_long_est": beta_long,
             "beta_short_est": beta_short,
             "net_beta_exante": net_beta_exante + hedge,
             "spy": spy,
-            "rf": md.rf_daily.reindex(cal).fillna(0.0),
+            "rf": rf,
         },
         index=cal,
     )
+    for f in hedge_names[1:]:
+        out[f"hedge_w_{f}"] = hedge_df[f]
     if start:
         out = out[out.index >= pd.Timestamp(start)]
     if end:

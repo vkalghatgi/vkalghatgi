@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import pandas as pd  # noqa: E402
 
-from pcn.config import BENCHMARKS, CACHE_DIR, DATA_DIR, HEDGE_TICKER, RISK_FREE_TICKER  # noqa: E402
+from pcn.config import BENCHMARKS, CACHE_DIR, DATA_DIR, DIVERSIFIERS, HEDGE_TICKER, RISK_FREE_TICKER  # noqa: E402
 from pcn.data.cramer import build_cramer_signals, build_thestreet_calls  # noqa: E402
 from pcn.data.house_clerk import build_pelosi_transactions  # noqa: E402
 from pcn.data.prices import (  # noqa: E402
@@ -59,7 +59,8 @@ def main(with_prices: bool = True) -> None:
     print(f"   {figi.shape[1]} tickers, {figi.index.min().date()} → {figi.index.max().date()}")
 
     print("== Prices: Yahoo for Pelosi tickers, benchmarks, T-bill (sequential, throttled)")
-    yahoo_set = sorted(set(tx.ticker.dropna()) | set(BENCHMARKS) | {HEDGE_TICKER, RISK_FREE_TICKER, "^VIX"})
+    yahoo_set = sorted(set(tx.ticker.dropna()) | set(BENCHMARKS) | set(DIVERSIFIERS)
+                       | {HEDGE_TICKER, RISK_FREE_TICKER, "^VIX"})
     yahoo = download_yahoo_sequential(yahoo_set, PRICE_START, PRICE_END, CACHE_DIR / "yahoo_prices.parquet")
     missing = sorted(t for t in yahoo_set if t not in yahoo.columns)
     print(f"   {len([t for t in yahoo_set if t in yahoo.columns])}/{len(yahoo_set)} series; missing on Yahoo: {missing}")

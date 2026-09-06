@@ -16,6 +16,12 @@ BENCHMARKS = {
     "RSP": "S&P 500 Equal Weight",
     "VTI": "US Total Market",
 }
+# Non-equity assets used only in the diversification analysis
+DIVERSIFIERS = {
+    "AGG": "US Aggregate Bonds",
+    "TLT": "20y+ Treasuries",
+    "GLD": "Gold",
+}
 RISK_FREE_TICKER = "^IRX"  # 13-week T-bill discount yield (annualised, %)
 HEDGE_TICKER = "SPY"
 
@@ -45,8 +51,10 @@ class StrategyParams:
     beta_window: int = 126               # trailing window (trading days) for beta estimates
     beta_method: str = "holdings"        # "holdings": sum(w_i * stock beta_i) | "leg": beta of the leg's return series
     beta_target: float = 0.0
-    beta_hedge: bool = True              # hedge residual beta with the hedge instrument
-    hedge_ticker: str = "SPY"            # instrument used for the beta overlay
+    beta_hedge: bool = True              # hedge residual beta with the hedge instrument(s)
+    hedge_tickers: tuple[str, ...] = ("SPY",)  # one instrument = market beta; several = multi-factor hedge
+    vol_target: float | None = None      # if set, scale the whole book to this annualised vol (trailing 63d estimate)
+    max_leverage: float = 2.0            # cap on the vol-target scaling factor
     max_hedge: float = 1.5               # |overlay| cannot exceed 150% of NAV (safety rail against bad data)
     beta_tolerance: float = 0.10         # reporting threshold |beta| <= tol
 
